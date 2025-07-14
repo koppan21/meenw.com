@@ -82,20 +82,20 @@
                 </div>
 
                 <div class="grid md:grid-cols-3 gap-12 text-center">
-                    <div class="bg-white p-8 rounded-xl shadow-md">
+                    <div class="bg-white p-12 rounded-2xl shadow-md text-lg leading-relaxed">
                         <h3 class="text-xl font-bold mb-4">Introducción</h3>
-                        <p class="text-gray-600">
+                        <p class="text-gray-600 text-justify">
                             En un contexto donde el impacto ambiental de las tecnologías digitales cobra cada vez más importancia, este proyecto aborda el 
                             consumo energético asociado a la navegación web. A través de un enfoque práctico y experimental, se combinan datos internos del 
                             sistema operativo Linux con mediciones externas obtenidas mediante un enchufe inteligente, permitiendo una evaluación precisa 
                             del consumo energético que generan distintas páginas web. El estudio no solo identifica patrones de consumo, sino que también 
                             promueve una mayor conciencia sobre la eficiencia energética digital.
-</p>
+                        </p>
                     </div>
-                    <div class="bg-white p-8 rounded-xl shadow-md">
+                    <div class="bg-white p-12 rounded-2xl shadow-md text-lg leading-relaxed">
                         <h3 class="text-xl font-bold mb-4">Objetivos</h3>
                         <h4 class="font-bold">Objetivo general:</h4>
-                        <p>
+                        <p class="text-justify">
                             Analizar el consumo energético de páginas web mediante herramientas de monitoreo interno del sistema y sensores externos, con el fin 
                             de evaluar su impacto y facilitar comparaciones entre distintos tipos de contenido.
                         </p>
@@ -109,9 +109,9 @@
                             <li>Presentar los resultados de forma visual para facilitar su interpretación.</li>
                         </ul>
                     </div>
-                    <div class="bg-white p-8 rounded-xl shadow-md">
+                    <div class="bg-white p-12 rounded-2xl shadow-md text-lg leading-relaxed">
                         <h3 class="text-xl font-bold mb-4">Metodología</h3>
-                        <p class="text-gray-600">
+                        <p class="text-gray-600 text-justify">
                             La metodología es de tipo experimental, basada en scripts automatizados para cargar y navegar por sitios web mientras se registran métricas de consumo 
                             energético tanto internas (mediante la interfaz `hwmon` del kernel de Linux) como externas (con un enchufe Shelly inteligente). Estos datos se 
                             sincronizan y analizan estadísticamente para detectar variaciones en el consumo según el tipo de contenido y navegador. Se emplea Python para orquestar 
@@ -155,11 +155,14 @@
                 </div>
 
                 <div class="text-left max-w-3xl mx-auto mb-12">
-                <p class="text-gray-700">
-                    Se presentan los resultados obtenidos tras medir el consumo energético de diversas páginas web. Para cada sitio analizado se compararon los datos internos del sistema (`hwmon`) y los valores registrados por el enchufe inteligente. Se aplicaron pruebas estadísticas básicas (media, desviación típica) y análisis de correlación para estudiar la coherencia entre ambos métodos de medición.
+                <p class="text-gray-700 text-justify">
+                    Se presentan los resultados obtenidos tras medir el consumo energético de diversas páginas web. Para cada sitio analizado se compararon 
+                    los datos internos del sistema (`hwmon`) y los valores registrados por el enchufe inteligente. Se aplicaron pruebas estadísticas básicas 
+                    (media, desviación típica) y análisis de correlación para estudiar la coherencia entre ambos métodos de medición.
                 </p>
-                <p class="text-gray-700 mt-4">
-                    A continuación, se muestran dos gráficos representativos: uno con la evolución del consumo durante una sesión de navegación, y otro que compara el consumo medio entre distintas páginas analizadas.
+                <p class="text-gray-700 mt-4 text-justify">
+                    A continuación, se muestran dos gráficos representativos: uno con la evolución del consumo durante una sesión de navegación, y otro que 
+                    compara el consumo medio entre distintas páginas analizadas.
                 </p>
                 </div>
 
@@ -189,20 +192,26 @@
                 <div class="space-y-8 bg-white p-8 md:p-12 rounded-xl shadow-lg">
                 <div>
                     <h3 class="text-xl font-semibold mb-2">Conclusiones Principales</h3>
-                    <p class="text-gray-700">
-                    El estudio confirma que existe una variación notable en el consumo energético dependiendo del tipo de página web visitada. Las páginas con contenido dinámico, multimedia o de carga intensiva (como YouTube o Twitter) generan un mayor consumo en comparación con sitios más ligeros como Wikipedia. La correlación entre las mediciones internas (`hwmon`) y externas (enchufe inteligente) valida el enfoque de medición dual propuesto.
+                    <p class="text-gray-700 text-justify">
+                        El estudio confirma que existe una variación notable en el consumo energético dependiendo del tipo de página web visitada. Las páginas 
+                        con contenido dinámico, multimedia o de carga intensiva (como YouTube o Twitter) generan un mayor consumo en comparación con sitios más 
+                        ligeros como Wikipedia. La correlación entre las mediciones internas (`hwmon`) y externas (enchufe inteligente) valida el enfoque de 
+                        medición dual propuesto.
                     </p>
                 </div>
                 <div>
                     <h3 class="text-xl font-semibold mb-2">Limitaciones del Estudio</h3>
-                    <p class="text-gray-700">
-                    Algunos factores externos (como la fluctuación en el tráfico de red o procesos del sistema operativo en segundo plano) pueden haber afectado las mediciones. Además, el número limitado de páginas y navegadores analizados restringe la generalización de los resultados.
+                    <p class="text-gray-700 text-justify">
+                        Algunos factores externos (como la fluctuación en el tráfico de red o procesos del sistema operativo en segundo plano) pueden haber 
+                        afectado las mediciones. Además, el número limitado de páginas y navegadores analizados restringe la generalización de los resultados.
                     </p>
                 </div>
                 <div>
                     <h3 class="text-xl font-semibold mb-2">Futuras Líneas de Investigación</h3>
-                    <p class="text-gray-700">
-                    Sería interesante ampliar el estudio incluyendo más navegadores (como Edge o Brave), evaluar el consumo en móviles o portátiles, y aplicar modelos de machine learning para predecir el consumo según características de las páginas. También se podría integrar una interfaz visual para que los usuarios consulten en tiempo real el impacto energético de la navegación.
+                    <p class="text-gray-700 text-justify">
+                        Sería interesante ampliar el estudio incluyendo más navegadores (como Edge o Brave), evaluar el consumo en móviles o portátiles, y 
+                        aplicar modelos de machine learning para predecir el consumo según características de las páginas. También se podría integrar una 
+                        interfaz visual para que los usuarios consulten en tiempo real el impacto energético de la navegación.
                     </p>
                 </div>
                 </div>
@@ -217,7 +226,8 @@
                     <img class="h-24 w-24 rounded-full" src="https://placehold.co/200x200/CBD5E0/4A5568?text=AF" alt="Foto de Alumno Ficticio">
                 </div>
                 <h3 class="mt-6 text-2xl font-bold">Sandra Nicole Solórzano Carcelén</h3>
-                <p class="mt-2 text-lg text-gray-300">Estudiante de último año del Grado en Ingeniería en Sistemas Audiovisuales y multimedia en la URJC, apasionado por el desarrollo web y la sostenibilidad.</p>
+                <p class="mt-2 text-lg text-gray-300">Estudiante de último año del Grado en Ingeniería en Sistemas Audiovisuales y multimedia en la URJC, 
+                    apasionado por el desarrollo web y la sostenibilidad.</p>
                 <div class="mt-8 flex justify-center gap-6">
                     <a href="mailto:sandranicole2001@hotmail.com" class="text-gray-300 hover:text-blue-400 transition">Correo Electrónico</a>
                     <a href="#" class="text-gray-300 hover:text-blue-400 transition">LinkedIn</a>

@@ -4,10 +4,6 @@ body {
     color: #2c3e50;
 }
 
-p, h4 {
-    text-align: justify;
-}
-
 .chart-container {
     position: relative;
     width: 100%;
