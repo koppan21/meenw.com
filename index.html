@@ -164,16 +164,28 @@
                 <div class="flex flex-col items-center">
                     <h3 class="text-xl font-bold text-center mb-4">Consumo en Tiempo Real</h3>
                     <div class="chart-container">
-                    <canvas id="lineChart"></canvas>
+                        <img src="statics/graph_shelly_ranking_period_240.png">
                     </div>
                 </div>
                 <div class="flex flex-col items-center">
                     <h3 class="text-xl font-bold text-center mb-4">Comparativa entre Páginas</h3>
                     <div class="chart-container">
-                    <canvas id="barChart"></canvas>
+                        <img src="statics/total_energy_wh_bar_chart.png">
                     </div>
                 </div>
                 </div>
+
+                <div class="text-left max-w-3xl mx-auto mb-12">
+                <p class="text-gray-700 text-justify">
+                    El gráfico de líneas ilustra la evolución de la potencia de consumo (en vatios, W) para diferentes sesiones a lo largo de un período de 240 seundos. 
+                    Permite observar las fluctuaciones en el consumo energético en tiempo real y comparar el rendimiento de potencia entre distintas páginas web.
+                </p>
+                <p class="text-gray-700 mt-4 text-justify">
+                    El gráfico de barras muestra el consumo energético total (en vatios-hora, Wh) de diversas páginas web. Permite identificar 
+                    cuáles son las que demandan mayor energía, proporcionando una visión clara de los patrones de consumo.
+                </p>
+                </div>
+
             </div>
         </section>
         
@@ -243,7 +255,7 @@
     <div id="summary-modal" class="modal">
         <div class="modal-content">
             <span class="close-button">&times;</span>
-            <h3 class="text-2xl font-bold mb-4 text-gray-800">Generar puntos clave ✨</h3>
+            <h3 class="text-2xl font-bold mb-4 text-gray-800">Puntos Clave Generados ✨</h3>
             <div id="summary-content" class="text-gray-700">
                 <div class="loader"></div>
                 <p class="text-center mt-4">Generando resumen...</p>
