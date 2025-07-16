@@ -6,6 +6,7 @@
     <title>TFG: Medición de Eficiencia Energética en la Navegación Web</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
@@ -68,7 +69,7 @@
                     Este trabajo investiga los efectos de la navegación web sobre el consumo de energía eléctrica, evaluando varias páginas web con distinto diseño para ver las diferencias de consumo.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <a href="https://gitlab.eif.urjc.es/samm/tfg" class="bg-blue-600 text-white font-bold py-3 px-8 rounded-full hover:bg-blue-700 transition duration-300">Explorar Proyecto</a>
+                    <a href="https://github.com/koppan21/MEENW/tree/main" class="bg-blue-600 text-white font-bold py-3 px-8 rounded-full hover:bg-blue-700 transition duration-300">Explorar Proyecto</a>
                     <a href="statics/MEDICIÓN_DE_EFICIENCIA_ENERGÉTICA_EN_LA_NAVEGACIÓN_WEB.pdf" class="bg-white/20 backdrop-blur-sm text-white font-bold py-3 px-8 rounded-full hover:bg-white/30 transition duration-300">Descargar Memoria (PDF)</a>
                 </div>
             </div>
@@ -242,197 +243,13 @@
     <div id="summary-modal" class="modal">
         <div class="modal-content">
             <span class="close-button">&times;</span>
-            <h3 class="text-2xl font-bold mb-4 text-gray-800">Resumen del Proyecto ✨</h3>
+            <h3 class="text-2xl font-bold mb-4 text-gray-800">Generar puntos clave ✨</h3>
             <div id="summary-content" class="text-gray-700">
                 <div class="loader"></div>
                 <p class="text-center mt-4">Generando resumen...</p>
             </div>
         </div>
     </div>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-
-            const mobileMenuButton = document.getElementById('mobile-menu-button');
-            const mobileMenu = document.getElementById('mobile-menu');
-            const navLinks = document.querySelectorAll('.nav-link');
-
-            mobileMenuButton.addEventListener('click', () => {
-                mobileMenu.classList.toggle('hidden');
-                mobileMenuButton.querySelector('svg:first-child').classList.toggle('hidden');
-                mobileMenuButton.querySelector('svg:last-child').classList.toggle('hidden');
-            });
-
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    if (this.getAttribute('href').length > 1) {
-                        e.preventDefault();
-                        document.querySelector(this.getAttribute('href')).scrollIntoView({
-                            behavior: 'smooth'
-                        });
-                        if (mobileMenu.classList.contains('hidden') === false) {
-                            mobileMenu.classList.add('hidden');
-                            mobileMenuButton.querySelector('svg:first-child').classList.remove('hidden');
-                            mobileMenuButton.querySelector('svg:last-child').classList.add('hidden');
-                        }
-                    }
-                });
-            });
-
-            const sections = document.querySelectorAll('section');
-            const options = {
-                root: null,
-                threshold: 0.3,
-                rootMargin: "-80px 0px 0px 0px"
-            };
-
-            const observer = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        navLinks.forEach(link => {
-                            link.classList.remove('active');
-                            if (link.getAttribute('href').substring(1) === entry.target.id) {
-                                link.classList.add('active');
-                            }
-                        });
-                    }
-                });
-            }, options);
-
-            sections.forEach(section => {
-                observer.observe(section);
-            });
-
-
-            const lineChartCtx = document.getElementById('lineChart').getContext('2d');
-            const lineChart = new Chart(lineChartCtx, {
-                type: 'line',
-                data: {
-                    labels: ['2016', '2017', '2018', '2019', '2020', '2021', '2022', '2023'],
-                    datasets: [{
-                        label: 'Niveles de NO₂ (µg/m³)',
-                        data: [42, 45, 41, 38, 29, 31, 34, 32],
-                        backgroundColor: 'rgba(59, 130, 246, 0.1)',
-                        borderColor: 'rgba(59, 130, 246, 1)',
-                        borderWidth: 2,
-                        fill: true,
-                        tension: 0.4
-                    }]
-                },
-                options: {
-                    maintainAspectRatio: false,
-                    responsive: true,
-                    scales: {
-                        y: {
-                            beginAtZero: false,
-                            title: { display: true, text: 'µg/m³' }
-                        }
-                    },
-                    plugins: {
-                        legend: {
-                            display: true,
-                            position: 'bottom'
-                        }
-                    }
-                }
-            });
-
-            const barChartCtx = document.getElementById('barChart').getContext('2d');
-            const barChart = new Chart(barChartCtx, {
-                type: 'bar',
-                data: {
-                    labels: ['NO₂', 'PM2.5', 'O₃'],
-                    datasets: [{
-                        label: 'Media de contaminantes (µg/m³)',
-                        data: [32, 15, 48],
-                        backgroundColor: [
-                            'rgba(255, 99, 132, 0.6)',
-                            'rgba(54, 162, 235, 0.6)',
-                            'rgba(255, 206, 86, 0.6)'
-                        ],
-                        borderColor: [
-                            'rgba(255, 99, 132, 1)',
-                            'rgba(54, 162, 235, 1)',
-                            'rgba(255, 206, 86, 1)'
-                        ],
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    maintainAspectRatio: false,
-                    responsive: true,
-                    scales: {
-                        y: {
-                            beginAtZero: true,
-                            title: { display: true, text: 'µg/m³' }
-                        }
-                    },
-                    plugins: {
-                       legend: {
-                           display: false
-                       }
-                    }
-                }
-            });
-
-            const generateSummaryButton = document.getElementById('generate-summary-button');
-            const summaryModal = document.getElementById('summary-modal');
-            const closeButton = document.querySelector('.close-button');
-            const summaryContent = document.getElementById('summary-content');
-
-            generateSummaryButton.addEventListener('click', async () => {
-                summaryModal.style.display = 'flex';
-                summaryContent.innerHTML = '<div class="loader"></div><p class="text-center mt-4">Generando resumen...</p>';
-
-                const mainConclusions = document.getElementById('main-conclusions').innerText;
-                const studyLimitations = document.getElementById('study-limitations').innerText;
-                const futureResearch = document.getElementById('future-research').innerText;
-
-                const prompt = `Dado el siguiente texto de las conclusiones, limitaciones y futuras líneas de un Trabajo de Fin de Grado sobre la medición del consumo energético durante la navegación web, genera un resumen extendido de los puntos clave. Resume de forma clara los hallazgos más relevantes, las limitaciones del enfoque utilizado y las posibles mejoras futuras. Usa un lenguaje técnico accesible y redacta el resumen en español.
-
-                Conclusiones Principales: ${mainConclusions}
-                Limitaciones del Estudio: ${studyLimitations}
-                Futuras Líneas de Investigación: ${futureResearch}`;
-
-                let chatHistory = [];
-                chatHistory.push({ role: "user", parts: [{ text: prompt }] });
-                const payload = { contents: chatHistory };
-                const apiKey = "";
-                const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
-
-                try {
-                    const response = await fetch(apiUrl, {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify(payload)
-                    });
-                    const result = await response.json();
-
-                    if (result.candidates && result.candidates.length > 0 &&
-                        result.candidates[0].content && result.candidates[0].content.parts &&
-                        result.candidates[0].content.parts.length > 0) {
-                        const text = result.candidates[0].content.parts[0].text;
-                        summaryContent.innerHTML = `<p>${text}</p>`;
-                    } else {
-                        summaryContent.innerHTML = '<p class="text-red-500">Error al generar el resumen. Inténtalo de nuevo más tarde.</p>';
-                    }
-                } catch (error) {
-                    console.error('Error fetching from Gemini API:', error);
-                    summaryContent.innerHTML = '<p class="text-red-500">Error de conexión. Asegúrate de estar en línea y vuelve a intentarlo.</p>';
-                }
-            });
-
-            closeButton.addEventListener('click', () => {
-                summaryModal.style.display = 'none';
-            });
-
-            window.addEventListener('click', (event) => {
-                if (event.target === summaryModal) {
-                    summaryModal.style.display = 'none';
-                }
-            });
-        });
-    </script>
 </body>
 </html>
 
